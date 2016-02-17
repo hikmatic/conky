@@ -1,0 +1,48 @@
+##################################
+## by laabiyad  in 27-01-2013   ##
+##################################
+##     inspired by Gotham conky ##
+##################################
+use_xft yes
+xftfont 123:size=8
+xftalpha 1
+update_interval 3
+total_run_times 0
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 10 
+maximum_width 550
+draw_shades yes
+draw_outline no
+draw_borders yes
+draw_graph_borders no
+default_color e0e0e0
+default_shade_color black
+default_outline_color green
+alignment bm
+gap_x -100
+gap_y 0
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+net_avg_samples 1
+override_utf8_locale yes
+#use_spacer right
+
+TEXT
+##################################
+##             LOGOS            ##
+##################################
+${voffset 0}${color orange}${font OpenLogos:size=103}
+${color orange}v${font}${voffset -76}${goto 179}
+${font DS\-Digital:size=13}${color white}Debian 8.2${pre_exec  cat /etc/*release | grep 'RELEASE' | awk -F'=' '{print $2}'}  ${voffset -5}${font UbuntuTitleBold:size=9}${color white}${pre_exec uname -r | cut -c1-8}${goto 150}${voffset 0}${font UbuntuTitleBold:size=10}${color white}${pre_exec lsb_release -c | cut -f2}${goto 390}${voffset -5}${color #CF260D} ${font Poky:size=22}S${color white}${voffset -3}${font UbuntuTitleBold:size=9} $nodename 
+##################################
+##       clock&Calendar         ##
+##################################
+${voffset 0}${goto 100}
+${color #dddddd}${font DS\-Digital:Bold:pixelsize=120}${time %H:%M}${font}${goto 290}${voffset -290}${color #F64509}${font CutOutsFor3DFX:size=76}2 ${voffset -55}${color #dddddd}${font Ubuntu:pixelsize=16} ${goto 300}${time  %A}${font}${color #FCD97B}${voffset 15}${goto 310}${font Ubuntu:pixelsize=35}${time %d}${color #dddddd}${font Ubuntu:pixelsize=16}${voffset 18}${goto 295}${time %b %Y}${font}${voffset -70}
+#${font DroidSansMono:size=10}${goto 387}${color red}${execpi 3 cal -h | sed -n '/Su/p'}${voffset 16}${goto 380}${color #dddddd}${execpi 3 V=`date +%-d`; cal -h | sed -e 's/\r//g' -e 's/^/ /g' -e '1,2d' -e 's/\<'"$V"'\>/${color orange}&${color}/'}${voffset -100}
+

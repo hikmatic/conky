@@ -1,0 +1,168 @@
+##################################
+## by laabiyad  in 27-01-2013   ##
+##################################
+##     inspired by Jed conky  ##
+##################################
+# Use Xft?
+use_xft yes
+xftfont DejaVu Sans:size=8
+xftalpha 0.8
+text_buffer_size 2048
+ 
+# Update interval in seconds
+update_interval 1
+ 
+# This is the number of times Conky will update before quitting.
+# Set to zero to run forever.
+total_run_times 0
+ 
+# Create own window instead of using desktop (required in nautilus)
+own_window yes
+own_window_transparent yes
+own_window_type override
+own_window_class conky
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+background no
+ 
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+ 
+# Minimum size of text area
+minimum_size 180 0
+maximum_width 250
+ 
+# Draw shades?
+draw_shades no
+ 
+# Draw outlines?
+draw_outline no
+ 
+# Draw borders around text
+draw_borders no
+ 
+# Stippled borders?
+stippled_borders 0
+ 
+# border margins
+border_inner_margin 5
+ 
+# border width
+border_width 1
+ 
+# Default colors and also border colors
+default_color BADCDD
+default_shade_color BADCDD
+default_outline_color BADCDD
+own_window_colour black
+color1 black
+ 
+# Text alignment, other possible values are commented
+#alignment top_left
+alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+ 
+# Gap between borders of screen and text
+# same thing as passing -x at command line
+gap_x 10
+gap_y 190
+ 
+# Subtract file system buffers from used memory?
+no_buffers yes
+ 
+# set to yes if you want all text to be in uppercase
+uppercase no
+ 
+# number of cpu samples to average
+# set to 1 to disable averaging
+cpu_avg_samples 2
+ 
+# number of net samples to average
+# set to 1 to disable averaging
+net_avg_samples 2
+ 
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale yes
+
+####
+## My colors (suit yourself)
+#
+color0 White		#FFFFFF
+color1 Ivory		#FFFFF0
+color2 Ivory2		#EEEEE0
+color3 Ivory3		#CDCDC1
+color4 Tan1		#FFA54F
+color5 Tan2		#EE9A49
+color6 Gray		#7E7E7E
+color7 AntiqueWhite4	#8B8378
+color8 DimGray		#696969
+color9 Tomato		#FF6347
+#colorX OrangeRed	#FF4500 
+
+
+# Add spaces to keep things from moving about?  This only affects certain objects.
+#use_spacer none
+ lua_load ~/Desktop/conky/bargraph.lua
+ lua_draw_hook_post main_bars
+
+TEXT
+${font ConkySymbols:size=16}${color7}F${font DroidSans:bold:size=8}${color4}CPU${offset 8}${color8}${voffset -2}${hr 2}${font}
+Core 1 ${font Pixel LCD7:pixelsize=14}${cpu cpu0}%${font} $alignr Core 2  ${font Pixel LCD7:pixelsize=14:pixelsize=14}${cpu cpu1}%${font}
+${cpugraph  cpu0 25,120 87FF69 DC0E0E -t} ${tab 10}${cpugraph  cpu1 25,120 87FF69 DC0E0E -t}
+##################################
+##            MEMORY            ##
+##################################
+${voffset -8}${font DroidSans:bold:size=8}${color4}MEMORY${offset 8}${color4}${voffset -2}${hr 2}${font}$color
+${goto 97}${font DroidSans:size=8.3}${mem}/${memmax}${color7}${alignr}${memperc}%${font}${color7}
+${voffset -4}${font ConkySymbols:size=14}${color6}j${voffset -2}${font DroidSansFallback:size=8.3}${color3}${offset 3}RAM
+${voffset -6}${font StyleBats:size=16}j${font}SWAP${tab 80}${swap}${alignr}$swapperc% 
+${font Webdings:size=16}~${font}   Uptime: ${alignr}${font Light LED Board\-7:pixelsize=10}${uptime}
+##################################
+##            HDD               ##
+##################################
+${font Poky:bold:size=12}${color6}y${font DroidSans:bold:size=8}${color4}HDD${offset 8}${color4}${voffset -2}${hr 2}${font}$color
+${voffset -3}${alignc}${fs_used /}/${fs_size /}${alignr}${color7}${fs_free_perc /home}%
+${voffset -12}${font ConkySymbols:size=14}M${voffset -3}${font}HOME/
+##################################
+##            Network           ##
+##################################
+${font Poky:bold:size=8}${color6}Y${font DroidSans:bold:size=8}${color4}NETWORK${offset 8}${color4}${voffset -2}${hr 2}${font}$color
+${font PizzaDude Bullets:size=14}${color red}O$color${font}Up: ${upspeed ppp0}${voffset -4}${goto 160}${font PizzaDude Bullets:size=14}${color green}U$color${font}Down: ${downspeed ppp0}   
+${upspeedgraph ppp0 15,90  3BEB0C DC0E0E}${alignr}${downspeedgraph ppp0 15,90 3BEB0C DC0E0E}
+${totalup ppp0}${alignr}${totaldown ppp0}
+${voffset 4}${font ConkySymbols:size=14}G${font}   Signal: ${wireless_link_qual wlan0}/70 ${alignr}${wireless_link_bar 8,60 wlan0}
+${voffset 4}${font PizzaDude Bullets:size=14}a${font}   Local IP: ${alignr}${addr wlan0}
+##################################
+##           Processes         ##
+##################################
+${color6}${font Poky:size=14}a${font}${font DroidSans:bold:size=8}${color4}PROCESSES${offset 8}${color8}${voffset -2}${hr 2}${font}
+${color #B75B0B}${font Radio Space:size=8}Name ${goto 100} PID${goto 170} CPU%${tab 30}MEM%
+${color red}${top name 1} ${goto 100}${top pid 1}${goto 170}${top cpu 1}${tab 30}${top mem 1}
+${color #badcdd}${top name 2} ${goto 100}${top pid 2}${goto 170}${top cpu 2}${tab 30}${top mem 2}
+${color #badcdd}${top name 3} ${goto 100}${top pid 3}${goto 170}${top cpu 3}${tab 30}${top mem 3}${font}
+##################################
+##            Mail             ##
+##################################
+${font Martin Vogel's Symbols:size=14}B${font DroidSans:bold:size=8}${color4}BoxInfo${offset 8}${color8}${voffset -2}${hr 2}${font}
+${font ConkySymbols:size=16}${color6}c${font}  ${voffset -10}Gmail: ${alignr}${font DejaVu Sans:style=Bold:size=8}${color red}${exec conkyEmail --servertype=IMAP --servername=imap.googlemail.com --username=laabiyad.abderrahim --password=268126391241 --ssl}${font}${color6} New email(s)
+##################################
+##            Music             ##
+##################################
+	##################################
+	##           Clemetine          ##
+	##################################
+${goto 7}${font Buttons and Switches JL:size=14}${voffset 6}h${font DroidSans:bold:size=8}${color4}${voffset -6}MUSIC${color8}${hr 2}${font}
+${if_running clementine}
+#${goto 5}${voffset -15}${execpi 20 ~/clementine.sh}
+${goto 5}${image /tmp/cover -p 0,470 -s 85x85 -f 1 }${execi 5 conkyClementine -d CA > /dev/null}
+${voffset -15}${font Santana:size=8}${color ffffff}${execi 5 conkyClementine -d TI}${color ffffff}
+${goto 90}${voffset 4}${offset 6}${font Santana:size=8}${color ffffff}Artiste :${tab 20}${color green}${font Santana:size=8}${execi 5 conkyClementine -d AR}${color ffffff}              
+${goto 90}${offset 7}${font Santana:size=8}Album :${tab 20}${color red} ${font Santana:size=8}${execi 5 conkyClementine -d AL}${color ffffff}
+${goto 90}${offset 7}${font Santana:size=8}Piste :${tab 20}${color yellow}${font Santana:size=8}${execi 5 conkyClementine -d TN}${color ffffff}
+${goto 90}${offset 7}${font Santana:size=8}Year :${tab 20}$color${font Santana:size=8}${execi 5 conkyClementine -d YR}${color ffffff}
+${goto 90}${offset 7}${font Santana:size=8}Lenth :${tab 20}$color ${font Santana:size=8}${exec  conkyClementine -d PT}/ ${font Santana:size=8}${exec conkyClementine -d LE}
+${goto 120}${color6}${execbar  expr 100 \* $(conkyClementine -S -d PT) \/ $(conkyClementine -S -d LE )}${color}
+${goto 100}${if_match "${exec conkyClementine -d ST}"=="Playing"}${color #15BE12}${voffset -10}${font Buttons and Switches JL:size=12}a${else}${if_match "${exec conkyClementine -d ST}"=="Paused"}${voffset -10}${color #128EC9}${font Buttons and Switches JL:size=12}f${else}${if_match "${exec conkyClementine -d ST}"=="Stopped"}${voffset -10}${color #CB0F0B}${font Buttons and Switches JL:size=12}d${endif}${endif}${endif}
+${endif}
+	
+
