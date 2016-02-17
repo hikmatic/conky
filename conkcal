@@ -10,7 +10,7 @@ own_window_type override
 own_window_transparent yes
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 double_buffer yes
-minimum_size 120 5
+minimum_size 10 1 #120 5
 maximum_width 320
 draw_shades yes
 draw_outline no
@@ -21,7 +21,7 @@ default_shade_color black
 default_outline_color green
 alignment top_right
 gap_x -15
-gap_y 35
+gap_y -270 #-270
 no_buffers yes
 uppercase no
 cpu_avg_samples 2
@@ -29,11 +29,11 @@ override_utf8_locale no
 uppercase yes # set to yes if you want all text to be in uppercase
 
 TEXT
-${offset -5}${font DS\-Digital:Bold}${color orange}${time %A %b %Y}${hr 1}
+${offset -5}${voffset 300}${font DS\-Digital:Bold}${color orange}${time %A %b %Y}${hr 2}
 #${offset 90}${voffset 30}${execp cal  }
-
-${font DroidSansMono:size=10}${offset 10}${voffset -10}${color red}${execpi 3 cal -h | sed -n '/Su/p'}
-${color #dddddd}${execp V=`date +%-d`; cal -h | sed -e 's/\r//g' -e 's/^/ /g' -e '1,2d' -e 's/\<'"$V"'\>/${color orange}&${color}/'}${voffset 100}
+#-10
+${font DroidSansMono:size=10}${offset 6}${voffset 5}${color red}${execpi 3 cal -h | sed -n '/Su/p'}
+${color #dddddd}${execp V=`date +%-d`; cal -h | sed -e 's/\r//g' -e 's/^/ /g' -e '1,2d' -e 's/\<'"$V"'\>/${color orange}&${color7}/'}${voffset -70}
 
 
 

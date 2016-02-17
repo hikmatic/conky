@@ -65,7 +65,7 @@ alignment top_right
 # Gap between borders of screen and text
 # same thing as passing -x at command line
 gap_x 10
-gap_y 190
+gap_y 170
  
 # Subtract file system buffers from used memory?
 no_buffers yes
@@ -98,24 +98,25 @@ color7 AntiqueWhite4	#8B8378
 color8 DimGray		#696969
 color9 Tomato		#FF6347
 #colorX OrangeRed	#FF4500 
+colorA brightGreen    	#09FF00
 
 
 # Add spaces to keep things from moving about?  This only affects certain objects.
 #use_spacer none
- lua_load ~/Downloads/conky_laabiyad/bargraph.lua
+ lua_load ~/Desktop/conky/bargraph.lua
  lua_draw_hook_post main_bars
 
 TEXT
-${font ConkySymbols:size=16}${color7}F${font DroidSans:bold:size=8}${color4}CPU${offset 8}${color8}${voffset -2}${hr 2}${font}
+${font Electronics:size=20}${color0}e${font DroidSans:bold:size=8}${#09ff00}CPU${offset 8}${#6f0a0a}${voffset -2}${hr 2}${#cda34f}${font}
 Core 1 ${font Pixel LCD7:pixelsize=14}${cpu cpu0}%${font} $alignr Core 2  ${font Pixel LCD7:pixelsize=14:pixelsize=14}${cpu cpu1}%${font}
 ${cpugraph  cpu0 25,120 87FF69 DC0E0E -t} ${tab 10}${cpugraph  cpu1 25,120 87FF69 DC0E0E -t}
 ##################################
 ##            MEMORY            ##
 ##################################
 ${voffset -8}${font DroidSans:bold:size=8}${color4}MEMORY${offset 8}${color4}${voffset -2}${hr 2}${font}$color
-${goto 97}${font DroidSans:size=8.3}${mem}/${memmax}${color7}${alignr}${memperc}%${font}${color7}
-${voffset -4}${font ConkySymbols:size=14}${color6}j${voffset -2}${font DroidSansFallback:size=8.3}${color3}${offset 3}RAM
-${voffset -6}${font StyleBats:size=16}j${font}SWAP${tab 80}${swap}${alignr}$swapperc% 
+${goto 97}${font DroidSans:size=10}${mem}/${memmax}${#1732ff}${alignr}${memperc}%${font}${color0}
+${voffset -4}${font Digital Camera Symbols:size=20}${#f6e962}l${voffset -2}${font DroidSansFallback:BOLD:size=8.3}${#09FF00}${offset 3}RAM${#9dbed8}${membar 10,220}${#000000}
+${voffset -6}${font Digital Camera Symbols:size=20}E${font DroidSans:bold:size=8.3}${#09ff00}SWAP${tab 80}${swap}${alignr}$swapperc% 
 ${font Webdings:size=16}~${font}   Uptime: ${alignr}${font Light LED Board\-7:pixelsize=10}${uptime}
 ##################################
 ##            HDD               ##
@@ -143,11 +144,14 @@ ${color #badcdd}${top name 3} ${goto 100}${top pid 3}${goto 170}${top cpu 3}${ta
 ##################################
 ##            Mail             ##
 ##################################
-#${font Martin Vogel's Symbols:size=14}B${font DroidSans:bold:size=8}${color4}BoxInfo${offset 8}${color8}${voffset -2}${hr 2}${font}
-#${font ConkySymbols:size=16}${color6}c${font}  ${voffset -10}Gmail: ${alignr}${font DejaVu Sans:style=Bold:size=8}${color red}${exec conkyEmail --servertype=IMAP --servername=imap.googlemail.com --username=your_mail_without_@ --password=your_pass --ssl}${font}${color6} New email(s)
+${font Martin Vogel's Symbols:size=14}B${font DroidSans:bold:size=8}${color4}BoxInfo${offset 8}${color8}${voffset -2}${hr 2}${font}
+${font ConkySymbols:size=16}${color6}c${font}  ${voffset -10}Gmail: ${alignr}${font DejaVu Sans:style=Bold:size=8}${color red}${exec conkyEmail --servertype=IMAP --servername=imap.googlemail.com --username=your_mail_without_@ --password=your_pass --ssl}${font}${color6} New email(s)
 ##################################
 ##            Music             ##
 ##################################
+
+
+
 	##################################
 	##           Clemetine          ##
 	##################################
