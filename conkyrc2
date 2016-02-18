@@ -117,9 +117,9 @@ ${voffset -8}${font DroidSans:bold:size=8}${color4}MEMORY${offset 8}${color4}${v
 ${goto 97}${font DroidSans:size=10}${mem}/${memmax}${#1732ff}${alignr}${memperc}%${font}${color0}
 ${voffset -4}${font Digital Camera Symbols:size=20}${#f6e962}l${voffset -2}${font DroidSansFallback:BOLD:size=8.3}${#09FF00}${offset 3}RAM${#9dbed8}${membar 10,200}${#000000}
 ${voffset -6}${font Digital Camera Symbols:size=20}E${font DroidSans:bold:size=8.3}${#09ff00}SWAP ${#ff4500} ${swapbar 10,200}
-${#00cbb6}${tab 80}${swapmax}${alignr}$swapperc% 
-${font Aircraft2:size=16}b${font}${#dde5a8}   Uptime: ${tab 80}${#e9f625}${font Light LED Board\-7:pixelsize=15}${uptime}
-${font OpenLogos:size=12}t${tab 30}${font DroidSans:bold:italic:size=10}${exec uname -snmr}
+${#00cbb6}${tab 80}${swapmax}${alignr}$swapperc% ${#ffffff}
+${font Aircraft2:size=21}b${font}${#dde5a8}   Uptime: ${tab 80}${#e9f625}${font Light LED Board\-7:pixelsize=15}${uptime}
+${#000000}${font OpenLogos:size=35}t${tab 30}${#e9f625}${font DroidSans:bold:italic:size=10}${exec uname -snmr}
 ##################################
 ##            HDD               ##
 ##################################
@@ -130,9 +130,9 @@ ${voffset -12}${font Poky:size=14}p${#740001}${voffset -3}${font}HOME
 ##            Network           ##
 ##################################
 ${font Poky:bold:size=16}${#03396c}Y${font DroidSans:bold:size=8}${color4}NETWORK${offset 8}${color4}${voffset -2}${hr 2}${font}$color
-${font PizzaDude Bullets:size=14}${color red}O$color${font}Up: ${upspeed ppp0}${voffset -4}${goto 160}${font PizzaDude Bullets:size=14}${color green}U$color${font}Down: ${downspeed ppp0}   
-${upspeedgraph ppp0 15,90  3BEB0C DC0E0E}${alignr}${downspeedgraph ppp0 15,90 3BEB0C DC0E0E}
-${totalup ppp0}${alignr}${totaldown ppp0}
+${font VariShapes Solid:size=14}${color green}q$color${font}Up: ${upspeed wlan0}${voffset -4}${goto 160}${font VariShapes Solid:size=14}${color red}Q$color${font}Down: ${downspeed wlan0}   
+${upspeedgraph wlan0 15,90  3BEB0C DC0E0E}${alignr}${downspeedgraph wlan0 15,90 3BEB0C DC0E0E}
+${totalup wlan0}${alignr}${totaldown wlan0}
 ${voffset 4}${font ConkySymbols:size=14}G${font}   Signal: ${wireless_link_qual wlan0}/70 ${alignr}${wireless_link_bar 8,60 wlan0}
 ${voffset 4}${font PizzaDude Bullets:size=14}a${font}   Local IP: ${alignr}${addr wlan0}
 ##################################
@@ -146,29 +146,28 @@ ${color #badcdd}${top name 3} ${goto 100}${top pid 3}${goto 170}${top cpu 3}${ta
 ##################################
 ##            Mail             ##
 ##################################
-${font Martin Vogel's Symbols:size=14}B${font DroidSans:bold:size=8}${color4}BoxInfo${offset 8}${color8}${voffset -2}${hr 2}${font}
-${font ConkySymbols:size=16}${color6}c${font}  ${voffset -10}Gmail: ${alignr}${font DejaVu Sans:style=Bold:size=8}${color red}${exec conkyEmail --servertype=IMAP --servername=imap.googlemail.com --username=your_mail_without_@ --password=your_pass --ssl}${font}${color6} New email(s)
+#${font Martin Vogel's Symbols:size=14}B${font DroidSans:bold:size=8}${color4}BoxInfo${offset 8}${color8}${voffset -2}${hr 2}${font}
+#${font ConkySymbols:size=16}${color6}c${font}  ${voffset -10}Gmail: ${alignr}${font DejaVu Sans:style=Bold:size=8}${color red}${exec conkyEmail --servertype=IMAP --servername=imap.googlemail.com --username=your_mail_without_@ --password=your_pass --ssl}${font}${color6} New email(s)
 ##################################
 ##            Music             ##
 ##################################
 
 
-
 	##################################
 	##           Clemetine          ##
 	##################################
-${goto 7}${font Buttons and Switches JL:size=14}${voffset 6}h${font DroidSans:bold:size=8}${color4}${voffset -6}MUSIC${color8}${hr 2}${font}
-${if_running clementine}
+#${goto 7}${font Buttons and Switches JL:size=14}${voffset 6}h${font DroidSans:bold:size=8}${color4}${voffset -6}MUSIC${color8}${hr 2}${font}
+#${if_running clementine}
 #${goto 5}${voffset -15}${execpi 20 ~/clementine.sh}
-${goto 5}${image /tmp/cover -p 0,470 -s 85x85 -f 1 }${execi 5 conkyClementine -d CA > /dev/null}
-${voffset -15}${font Santana:size=8}${color ffffff}${execi 5 conkyClementine -d TI}${color ffffff}
-${goto 90}${voffset 4}${offset 6}${font Santana:size=8}${color ffffff}Artiste :${tab 20}${color green}${font Santana:size=8}${execi 5 conkyClementine -d AR}${color ffffff}              
-${goto 90}${offset 7}${font Santana:size=8}Album :${tab 20}${color red} ${font Santana:size=8}${execi 5 conkyClementine -d AL}${color ffffff}
-${goto 90}${offset 7}${font Santana:size=8}Piste :${tab 20}${color yellow}${font Santana:size=8}${execi 5 conkyClementine -d TN}${color ffffff}
-${goto 90}${offset 7}${font Santana:size=8}Year :${tab 20}$color${font Santana:size=8}${execi 5 conkyClementine -d YR}${color ffffff}
-${goto 90}${offset 7}${font Santana:size=8}Lenth :${tab 20}$color ${font Santana:size=8}${exec  conkyClementine -d PT}/ ${font Santana:size=8}${exec conkyClementine -d LE}
-${goto 120}${color6}${execbar  expr 100 \* $(conkyClementine -S -d PT) \/ $(conkyClementine -S -d LE )}${color}
-${goto 100}${if_match "${exec conkyClementine -d ST}"=="Playing"}${color #15BE12}${voffset -10}${font Buttons and Switches JL:size=12}a${else}${if_match "${exec conkyClementine -d ST}"=="Paused"}${voffset -10}${color #128EC9}${font Buttons and Switches JL:size=12}f${else}${if_match "${exec conkyClementine -d ST}"=="Stopped"}${voffset -10}${color #CB0F0B}${font Buttons and Switches JL:size=12}d${endif}${endif}${endif}
-${endif}
+#${goto 5}${image /tmp/cover -p 0,470 -s 85x85 -f 1 }${execi 5 conkyClementine -d CA > /dev/null}
+#${voffset -15}${font Santana:size=8}${color ffffff}${execi 5 conkyClementine -d TI}${color ffffff}
+#${goto 90}${voffset 4}${offset 6}${font Santana:size=8}${color ffffff}Artiste :${tab 20}${color green}${font Santana:size=8}${execi 5 conkyClementine -d AR}${color ffffff}              
+#${goto 90}${offset 7}${font Santana:size=8}Album :${tab 20}${color red} ${font Santana:size=8}${execi 5 conkyClementine -d AL}${color ffffff}
+#${goto 90}${offset 7}${font Santana:size=8}Piste :${tab 20}${color yellow}${font Santana:size=8}${execi 5 conkyClementine -d TN}${color ffffff}
+#${goto 90}${offset 7}${font Santana:size=8}Year :${tab 20}$color${font Santana:size=8}${execi 5 conkyClementine -d YR}${color ffffff}
+#${goto 90}${offset 7}${font Santana:size=8}Lenth :${tab 20}$color ${font Santana:size=8}${exec  conkyClementine -d PT}/ ${font Santana:size=8}${exec conkyClementine -d LE}
+#${goto 120}${color6}${execbar  expr 100 \* $(conkyClementine -S -d PT) \/ $(conkyClementine -S -d LE )}${color}
+#${goto 100}${if_match "${exec conkyClementine -d ST}"=="Playing"}${color #15BE12}${voffset -10}${font Buttons and Switches JL:size=12}a${else}${if_match "${exec conkyClementine -d ST}"=="Paused"}${voffset -10}${color #128EC9}${font Buttons and Switches JL:size=12}f${else}${if_match "${exec conkyClementine -d ST}"=="Stopped"}${voffset -10}${color #CB0F0B}${font Buttons and Switches JL:size=12}d${endif}${endif}${endif}
+#${endif}
 	
 
