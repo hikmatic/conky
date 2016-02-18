@@ -97,7 +97,7 @@ color6 Gray		#7E7E7E
 color7 AntiqueWhite4	#8B8378
 color8 DimGray		#696969
 color9 Tomato		#FF6347
-#colorX OrangeRed	#FF4500 
+colorX OrangeRed	#FF4500 
 colorA brightGreen    	#09FF00
 
 
@@ -115,19 +115,21 @@ ${cpugraph  cpu0 25,120 87FF69 DC0E0E -t} ${tab 10}${cpugraph  cpu1 25,120 87FF6
 ##################################
 ${voffset -8}${font DroidSans:bold:size=8}${color4}MEMORY${offset 8}${color4}${voffset -2}${hr 2}${font}$color
 ${goto 97}${font DroidSans:size=10}${mem}/${memmax}${#1732ff}${alignr}${memperc}%${font}${color0}
-${voffset -4}${font Digital Camera Symbols:size=20}${#f6e962}l${voffset -2}${font DroidSansFallback:BOLD:size=8.3}${#09FF00}${offset 3}RAM${#9dbed8}${membar 10,220}${#000000}
-${voffset -6}${font Digital Camera Symbols:size=20}E${font DroidSans:bold:size=8.3}${#09ff00}SWAP${tab 80}${swap}${alignr}$swapperc% 
-${font Webdings:size=16}~${font}   Uptime: ${alignr}${font Light LED Board\-7:pixelsize=10}${uptime}
+${voffset -4}${font Digital Camera Symbols:size=20}${#f6e962}l${voffset -2}${font DroidSansFallback:BOLD:size=8.3}${#09FF00}${offset 3}RAM${#9dbed8}${membar 10,200}${#000000}
+${voffset -6}${font Digital Camera Symbols:size=20}E${font DroidSans:bold:size=8.3}${#09ff00}SWAP ${#ff4500} ${swapbar 10,200}
+${#00cbb6}${tab 80}${swapmax}${alignr}$swapperc% 
+${font Aircraft2:size=16}b${font}${#dde5a8}   Uptime: ${tab 80}${#e9f625}${font Light LED Board\-7:pixelsize=15}${uptime}
+${font OpenLogos:size=12}t${tab 30}${font DroidSans:bold:italic:size=10}${exec uname -snmr}
 ##################################
 ##            HDD               ##
 ##################################
-${font Poky:bold:size=12}${color6}y${font DroidSans:bold:size=8}${color4}HDD${offset 8}${color4}${voffset -2}${hr 2}${font}$color
-${voffset -3}${alignc}${fs_used /}/${fs_size /}${alignr}${color7}${fs_free_perc /home}%
-${voffset -12}${font ConkySymbols:size=14}M${voffset -3}${font}HOME/
+${font Deejay Supreme:bold:size=20}${#00cbb6}a${font DroidSans:bold:size=10}${color4}HDD${offset 8}${color4}${voffset -2}${hr 2}${font}$color
+${voffset -3}${alignc}${fs_used /}/${fs_size /}${alignr}${#ffad60}${fs_free_perc /home}%
+${voffset -12}${font Poky:size=14}p${#740001}${voffset -3}${font}HOME
 ##################################
 ##            Network           ##
 ##################################
-${font Poky:bold:size=8}${color6}Y${font DroidSans:bold:size=8}${color4}NETWORK${offset 8}${color4}${voffset -2}${hr 2}${font}$color
+${font Poky:bold:size=16}${#03396c}Y${font DroidSans:bold:size=8}${color4}NETWORK${offset 8}${color4}${voffset -2}${hr 2}${font}$color
 ${font PizzaDude Bullets:size=14}${color red}O$color${font}Up: ${upspeed ppp0}${voffset -4}${goto 160}${font PizzaDude Bullets:size=14}${color green}U$color${font}Down: ${downspeed ppp0}   
 ${upspeedgraph ppp0 15,90  3BEB0C DC0E0E}${alignr}${downspeedgraph ppp0 15,90 3BEB0C DC0E0E}
 ${totalup ppp0}${alignr}${totaldown ppp0}
