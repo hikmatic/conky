@@ -42,7 +42,7 @@ stippled_borders 3
 #border_margin 9
 
 # border width
-border_width 10
+border_width 1
 
 # Default colors and also border colors, grey90 == #e5e5e5
 default_color white
@@ -58,7 +58,7 @@ alignment bm
 
 # Gap between borders of screen and text
 gap_x -230
-gap_y 170
+gap_y 140
 
 # stuff after 'TEXT' will be formatted on screen
 

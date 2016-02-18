@@ -10,8 +10,8 @@ own_window_type override
 own_window_transparent yes
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 double_buffer yes
-minimum_size 5 #5
-maximum_width 185
+minimum_size 5 
+maximum_width 120 # 185
 draw_shades yes
 draw_outline no
 draw_borders no
@@ -20,7 +20,7 @@ default_color white
 default_shade_color black
 default_outline_color green
 alignment top_middle
-gap_x -355
+gap_x -390 #-355
 gap_y -40 #35
 no_buffers yes
 uppercase no
@@ -30,6 +30,6 @@ uppercase yes # set to yes if you want all text to be in uppercase
 
 TEXT
 
-
-${goto 100}${voffset 60}${font CutOutsFor3DFX:size=76}${color #F64509}2${font Ubuntu:pixelsize=16}${color white}${offset -80}${voffset -50}${time  %A}${font}${color #FCD97B}${font Ubuntu:pixelsize=35}${offset -60}${voffset 10}${time %d}${color white}${font Ubuntu:pixelsize=16}${offset -55}${voffset 20}${goto -290}${time %b %Y}${font}${voffset 70}
+#
+${goto -230}${voffset 60}${font CutOutsFor3DFX:size=90}${color #F64509}2${font Ubuntu:pixelsize=16}${color white}${offset -100}${voffset -50}${time  %A}${font}${color #FCD97B}${font Ubuntu:pixelsize=35}${offset -75}${voffset 10}${time %d}${color white}${font Ubuntu:pixelsize=16}${offset -60}${voffset 20}${goto -290}${time %b %Y}${font}${voffset 70}
 

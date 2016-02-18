@@ -20,7 +20,7 @@ default_color white
 default_shade_color black
 default_outline_color green
 alignment top_middle
-gap_x -245
+gap_x -210
 gap_y 45
 no_buffers yes
 uppercase no
@@ -29,5 +29,5 @@ override_utf8_locale no
 uppercase yes # set to yes if you want all text to be in uppercase
 
 TEXT
-${voffset -25}${color #dddddd}${font DS\-Digital:Bold:pixelsize=110}${time %l:%M}
+${voffset -25}${color #dddddd}${font DS\-Digital:Bold:pixelsize=110}${time %l:%M}${voffset -130}
 
