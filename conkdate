@@ -31,5 +31,5 @@ uppercase yes # set to yes if you want all text to be in uppercase
 TEXT
 
 #
-${goto -230}${voffset 60}${font CutOutsFor3DFX:size=90}${color #F64509}2${font Ubuntu:pixelsize=16}${color white}${offset -100}${voffset -50}${time  %A}${font}${color #FCD97B}${font Ubuntu:pixelsize=35}${offset -75}${voffset 10}${time %d}${color white}${font Ubuntu:pixelsize=16}${offset -60}${voffset 20}${goto -290}${time %b %Y}${font}${voffset 70}
+${goto -300}${voffset 60}${font CutOutsFor3DFX:size=90}${color #F64509}2${font Ubuntu:pixelsize=16}${color white}${offset -80}${voffset -50}${time  %A}${font}${color #FCD97B}${font Ubuntu:pixelsize=35}${offset -55}${voffset 10}${time %d}${color white}${font Ubuntu:pixelsize=16}${offset -60}${voffset 20}${goto -290}${time %b %Y}${font}${voffset 70}
 
